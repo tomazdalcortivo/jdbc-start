@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.PreparedStatement;
 
 public class Transmission {
 
@@ -46,6 +47,27 @@ public class Transmission {
                 st.close();
             } catch (SQLException ex) {
                 Logger.getLogger(Transmission.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public static void closePreparedStatement(PreparedStatement ps){
+        if (ps != null) {
+            try {
+                ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public  static void closeConnection(Connection conn){
+        if (conn != null) {
+            try {
+            conn.close();
+                
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
     }
