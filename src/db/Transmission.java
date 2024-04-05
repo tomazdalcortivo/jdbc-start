@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.sql.PreparedStatement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Transmission {
-   
+
     public Connection Connect() throws SQLException {
-       
+        
         try {
             //1º Carga do driver
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -37,9 +39,9 @@ public class Transmission {
             System.out.println("Não conectou com o banco de dados. Verifique os parâmetros de conexão.");
             System.out.println(ex);
             throw ex;
-        }
-        return null;
     }
+        return null;
+}
     
     public static void closeStatemant(Statement st){
         if (st != null) {
