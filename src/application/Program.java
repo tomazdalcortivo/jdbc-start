@@ -50,8 +50,8 @@ public class Program {
             
         } catch (SQLException e) {
             e.printStackTrace();
-//        } catch (ParseException ex) {
-//            ex.printStackTrace();
+       } catch (ParseException ex) {
+           ex.printStackTrace();
         } finally {
             Transmission.closeStatemant(st);
             conn.close();
