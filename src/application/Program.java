@@ -26,17 +26,9 @@ public class Program {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (st != null) {
-                    st.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-                    
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            Transmission.closePreparedStatement(st);
+            Transmission.closeConnection(conn);
         }
     }
 }
+
